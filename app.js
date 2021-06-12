@@ -4,7 +4,7 @@ const path = require("path")
 
 const PORT = process.env.PORT || 3800;
 
-app.use(express.urlencoded({extend: true}));
+// app.use(express.urlencoded({extend: true}));
 app.use(express.json());
 
 //view engine setup

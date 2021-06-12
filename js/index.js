@@ -14,7 +14,10 @@ function example(){
                 document.getElementById("danePobrane2").innerHTML = data[5].age;
                 document.getElementById("danePobrane3").innerHTML = data[5].rank;
             })
+            console.log("zarejestrowano odczyt z bazy")
+            return;
         }
+        throw new Error("Request failed.")
     })
 
 }
