@@ -21,7 +21,11 @@ async function run(){
                 console.log("Błąd połączenia: " + error)
             }
     )
-    await Character.collection.drop() //usunięcie kolekcji - tylko wersja dev - zeby za kazdym uruchomieniem nie dodawało mi tych samych dokumentów do bazy
+
+    if (Character.length){
+        await Character.collection.drop() //usunięcie kolekcji - tylko wersja dev - zeby za kazdym uruchomieniem nie dodawało mi tych samych dokumentów do bazy
+    }
+
     await Character.create([
         {name: "Marcin Dłubis", age: 32, rank: "marszałek"},
         {name: "Jan Kowalski", age: 43, rank: "komandor"},
