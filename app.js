@@ -1,19 +1,13 @@
 const express = require("express");
 const app = express();
 mongoose = require("mongoose");
+const Character = require("./models/Character")
 
 const PORT = 3800;
 const connectionString = "mongodb+srv://mojanazwauzytkownika:mojehaslouzytkownika@cluster0.rrhsm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 app.use(express.urlencoded({extend: true}));
 app.use(express.json());
-
-const Character = mongoose.model("Character", mongoose.Schema({
-    name:String,
-    age:Number,
-    rank:String
-}));
-
 
 async function run(){
     await mongoose.connect(connectionString, {
