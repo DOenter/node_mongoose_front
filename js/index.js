@@ -1,0 +1,1 @@
+console.log("został wczytany zewnętrzny plik")
