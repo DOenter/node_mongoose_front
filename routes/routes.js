@@ -32,10 +32,21 @@ Character.create([
 ])
 
 
-router.get("/", (req,res) => {
-    res.render("index",{
-        title: "Tytuł strony"
+router.get("/", async (req,res) => {
+
+    const findID = await Character.find({rank: "marszałek"})
+    const findID2 = await Character.find({name: "Jacek Nowak"})
+    await res.render("index",{
+        title: "Tytuł strony",
+        find: findID,
+        find2: findID2
+
     })
 })
 
+
+router.get("/posts", async (req,res) => {
+    const findId = await Character.find()
+    await res.json(findId)
+})
 module.exports = router;

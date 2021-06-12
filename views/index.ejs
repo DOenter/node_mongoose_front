@@ -8,7 +8,29 @@
 </head>
 <body>
     <h1> <%= title %></h1>
+    <ul>
+        <% for(var i=0; i<find.length;i++){ %>
+            <li> <%= find[i].name %> </li>
+            <li> <%= find[i].rank %> </li>
+            <li> <%= find[i].age %> </li>
+        <% } %>
+    </ul>
+    <ul>
+        <% for(var i=0; i<find2.length;i++){ %>
+            <li> <%= find2[i].name %> </li>
+            <li> <%= find2[i].rank %> </li>
+            <li> <%= find2[i].age %> </li>
+        <% } %>
+    </ul>
 
+
+    <button id="btn">Odczyt z bazy danych</button>
+
+    <ul>
+        <li id="danePobrane1"></li>
+        <li id="danePobrane2"></li>
+        <li id="danePobrane3"></li>
+    </ul>
     <script src="./../js/index.js"></script>
 </body>
 </html>
