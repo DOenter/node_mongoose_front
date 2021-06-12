@@ -49,4 +49,17 @@ router.get("/posts", async (req,res) => {
     const findId = await Character.find()
     await res.json(findId)
 })
+
+
+router.post("/", async function (req,res){
+    
+    const insertDoc = new Character({name: req.body.name, rank: req.body.rank, age: req.body.age})
+    await insertDoc.save(function (err, someVal){
+        if (err) return console.error(err)
+        console.log(someVal.name + " saved to collection")
+    })
+    res.status(204).send()
+    // res.redirect("/")
+})
+
 module.exports = router;
