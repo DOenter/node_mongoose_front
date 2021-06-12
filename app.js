@@ -31,12 +31,37 @@ async function run(){
         {name: "Jan Kowalski", age: 43, rank: "komandor"},
         {name: "Jacek Nowak", age: 69, rank: "komandor"},
         {name: "Jacek Kowalski", age: 23, rank: "porucznik"},
-        {name: "Aleksander Macedoński", age: 41, rank: "komandor"},
+        {name: "Aleksander Macedoński", age: 23, rank: "komandor"},
         {name: "Marian Ozimek", age: 39, rank: "pułkownik"}
     ])
 
-    const docs = await Character.find({rank: "komandor"})
-    console.log(docs)
+    //przykład 1 - znajdź wszystkich o statusie rank:"komandor"
+    // const docs = await Character.find({rank: "komandor"})
+    // console.log(docs)
+    //przykład 2
+    // const docs = await Character.findOneAndUpdate({name: "Jacek Nowak"},{age: "47"})
+    // const findID = await Character.find();
+    // const docs = await Character.findByIdAndUpdate({_id: findID[3]._id},{rank: "pułkownik"})
+    // console.log(docs)
+    //przykład 3 - UPDATE MANY
+    // const docs = await Character.updateMany({age: 23},{age:25})
+    // const docs = await Character.updateMany({},{employment: true})
+    //przykład 4 - ADD DOCUMENT TO COLLECTIOn
+    // const insterDoc = new Character({name: "Wojciech Surma", rank: "szeregowy"})
+    // await insterDoc.save(( err, someVal) => {
+    //     if (err) return console.error(err)
+    //     console.log(someVal.name + " - zapisano do kolekcji")
+    // })
+    // const docs = await Character.find();
+    // console.log(docs)
+    //Przykład 5
+    // const docs = await Character.deleteOne({name: "Jacek Kowalski"})
+
+    // 5a
+
+    // const docs = await Character.deleteMany({age: 23})
+    const findID = await Character.find();
+    await Character.findByIdAndRemove(findID[0]._id)
 };
 
 run().catch( error => console.log(error));
